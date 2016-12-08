@@ -92,6 +92,13 @@ class Asari
       url << "&rank=#{rank}"
     end
 
+    if options[:sort]
+      if options[:sort] != ''
+        sort = options[:sort]
+        url << "&sort=#{sort}"
+      end
+    end
+
     begin
       response = HTTParty.get(url)
     rescue Exception => e
